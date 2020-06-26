@@ -40,11 +40,13 @@ github::merge_pull_request() {
   local -r pull_number=$1
   local -r sha=$2
   
+  local data='{"sha":"'"$sha"'","commit_tittle":"Automerge composer.lock file","commit_message":"Automerge composer.lock file"}'
+  echo $data
   curl -sSL \
    -H "Accept: application/vnd.github.v3+json" \
    -H "Authorization: token $GITHUB_TOKEN" \
    -X PUT \
    -H "Content-Type: application/json" \
-   -d '{"sha": $sha, "commit_tittle": "Automerge composer.lock file", "commit_message": "Automerge composer.lock file"}' \
+   -d "$data" \
    "https://api.github.com/repos/Tanoka/pulls/4/merge"
 }
