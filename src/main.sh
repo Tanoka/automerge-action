@@ -25,7 +25,7 @@ local -r commit_sha="$(github_actions::commit_sha)"
     if [ "$commited_files" == "composer.lock" ]; then
       echo "INNNN"
       local -r pr_number="$(github_actions::get_pr_number)"
-      github::merge_pull_request "$pr_number"
+      github::merge_pull_request "$pr_number" "$commit_sha"
       echo "IF 2"
     fi
     echo "IF 1"
