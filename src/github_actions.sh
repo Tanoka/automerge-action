@@ -5,7 +5,7 @@ github_actions::get_pr_number() {
 }
 
 github_actions::commit_sha() {
-  jq --raw-output .pull_request.head.repo.sha "$GITHUB_EVENT_PATH"
+  jq --raw-output .pull_request.head.sha "$GITHUB_EVENT_PATH"
 }
 
 github_actions::print_all_data() {
