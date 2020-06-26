@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Merge pull requests when there is only a composer.lock file
     steps:
-      - uses: tanoka/automerge-action@master
+      - uses: tanoka/automerge-action@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
