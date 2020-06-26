@@ -44,7 +44,6 @@ github::comment_commit() {
 
 github::merge_pull_request() {
   local -r pull_number=$1
-  local -r sha=$2
   
   local data='{"commit_title":"MERGE PULL REQUEST: Automerge composer.lock file"}'
 
