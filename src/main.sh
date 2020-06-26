@@ -10,7 +10,7 @@ main() {
   ensure::env_variable_exist "GITHUB_EVENT_PATH"
   ensure::total_args 2 "$@"
 
-echo "$GITHUB_EVENT_PATH"
+  cat "$GITHUB_EVENT_PATH"
 
   export GITHUB_TOKEN="$1"
 
