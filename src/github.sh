@@ -39,12 +39,12 @@ github::comment_commit() {
 github::merge_pull_request() {
   local -r pull_number=$1
   local -r sha=$2
-
+  
   curl -sSL \
-     -H "Authorization: token $GITHUB_TOKEN" \ 
-     -H "$GITHUB_API_HEADER" \ 
-     -X PUT \
-     -H "Content-Type: application/json" \
-     -d '{"sha": $sha, "commit_tittle": "Automerge Core"}' \
-     "$GITHUB_API_URI/repos/$GITHUB_REPOSITORY/pulls/$pull_number/merge"
+   -H "Accept: application/vnd.github.v3+json" \
+   -H "Authorization: token " \
+   -X PUT \
+   -H "Content-Type: application/json" \
+   -d '{"sha": $sha, "commit_tittle": "Automerge Core"}' \
+   "https://api.github.com/repos/Tanoka/pulls/4/merge"
 }
