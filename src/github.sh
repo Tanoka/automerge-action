@@ -35,3 +35,12 @@ github::comment_commit() {
     -d "{\"body\":\"$comment\"}" \
     "$GITHUB_API_URI/repos/$GITHUB_REPOSITORY/commits/$commit_sha/comments"
 }
+
+github::merge_pull_request() {
+  local -r pull_number=$1
+
+  curl -sSL \
+     -H "Authorization: token $GITHUB_TOKEN" -H "$GITHUB_API_HEADER" \ 
+     -X PUT \
+     "$GITHUB_API_URI/repos/$GITHUB_REPOSITORY/pulls/$pull_number/merge"
+}
