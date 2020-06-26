@@ -16,7 +16,7 @@ main() {
  
  local -r commited_files=$(github::get_commit_modified_files "$commit_sha")
 
- $num_files=$(echo "$commited_files" | wc -l)
+ local -r num_files=$(echo "$commited_files" | wc -l)
  if [ $num_files -eq 1 ]; then
     if [ "$commited_files" == "composer.lock" ]; then
       local -r pr_nunber="$(github_actions::get_pr_number)"
