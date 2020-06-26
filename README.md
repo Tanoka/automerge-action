@@ -1,14 +1,14 @@
 Create a file named `whatever_name.yml` inside the `.github/workflows` directory and paste:
 
 ```yml
-name: Bash GH Skeleton
+name: Bash Pull request ,erger
 
 on: [pull_request]
 
 jobs:
   bash-gh-skeleton:
     runs-on: ubuntu-latest
-    name: Whatever this action does
+    name: Merge pull requests when there is only a composer.lock file
     steps:
       - uses: tanoka/automerge-action@master
         with:
