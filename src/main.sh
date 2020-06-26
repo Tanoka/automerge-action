@@ -15,12 +15,16 @@ main() {
   export GITHUB_TOKEN="$1"
 
   local -r pr_number="$(github_actions::get_pr_number)"
+  
+  echo "pr_number $pr_number"
       
  local -r commit_sha="$(github_actions::commit_sha)"
   
- local -r pr_files="$(github::get_pull_request_files \"$pr_number\")"
+  echo "commit_sha $commit_sha"
+  
+ local -r pr_files="$(github::get_pull_request_files $pr_number)"
 
-echo "pr $pr_files"
+ echo "pr_files $pr_files"
 
  local -r num_files="$(echo \"$pr_files\" | wc -l )"
 
