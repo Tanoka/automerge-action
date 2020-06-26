@@ -18,7 +18,7 @@ main() {
       
  local -r commit_sha="$(github_actions::commit_sha)"
   
- local -r pr_files="$(github_actions::get_pull_request_files \"$pr_number\")"
+ local -r pr_files="$(github::get_pull_request_files \"$pr_number\")"
 
 echo "pr $pr_files"
 
