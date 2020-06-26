@@ -45,6 +45,6 @@ github::merge_pull_request() {
    -H "Authorization: token $GITHUB_TOKEN" \
    -X PUT \
    -H "Content-Type: application/json" \
-   -d '{"sha": $sha, "commit_tittle": "Automerge Core"}' \
+   -d '{"sha": $sha, "commit_tittle": "Automerge composer.lock file", "commit_message": "Automerge composer.lock file"}' \
    "https://api.github.com/repos/Tanoka/pulls/4/merge"
 }
