@@ -10,9 +10,11 @@ main() {
   ensure::env_variable_exist "GITHUB_EVENT_PATH"
   ensure::total_args 2 "$@"
 
+echo "$GITHUB_EVENT_PATH"
+
   export GITHUB_TOKEN="$1"
- echo "INIII"
- local -r commit_sha="$(github_actions::commit_sha)"
+
+local -r commit_sha="$(github_actions::commit_sha)"
  echo "sha $commit_sha"
  local -r commited_files=$(github::get_commit_modified_files "$commit_sha")
  
