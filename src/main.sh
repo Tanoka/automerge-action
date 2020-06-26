@@ -26,7 +26,7 @@ main() {
 
  echo "pr_files $pr_files"
 
- local -r num_files="$(echo \"$pr_files\" | wc -l )"
+ local -r num_files=$(echo "$pr_files" | wc -l)
 
 echo "num $num_files"
 
