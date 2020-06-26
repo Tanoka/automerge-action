@@ -42,7 +42,7 @@ github::merge_pull_request() {
   
   curl -sSL \
    -H "Accept: application/vnd.github.v3+json" \
-   -H "Authorization: token " \
+   -H "Authorization: token $GITHUB_TOKEN" \
    -X PUT \
    -H "Content-Type: application/json" \
    -d '{"sha": $sha, "commit_tittle": "Automerge Core"}' \
