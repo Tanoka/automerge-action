@@ -16,7 +16,12 @@ main() {
  
  local -r commited_files=$(github::get_commit_modified_files "$commit_sha")
 
- echo "$commited_files"
+ $num_files=$(echo "$commited_files" | wc -l)
+ if [ $num_files -eq 1 ]; then
+    if [ "$commited_files" == "composer.lock" ]; then
+   
+    fi
+ fi
 
   exit $?
 }
