@@ -10,6 +10,8 @@ main() {
   ensure::env_variable_exist "GITHUB_EVENT_PATH"
   ensure::total_args 2 "$@"
 
+ cat "$GITHUB_EVENT_PATH"
+
   export GITHUB_TOKEN="$1"
 
 local -r commit_sha="$(github_actions::commit_sha)"
