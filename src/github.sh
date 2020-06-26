@@ -47,7 +47,7 @@ github::merge_pull_request() {
   local -r sha=$2
   
 #  local data='{"sha":"'"$sha"'","commit_title":"Automerge composer.lock file","commit_message":"Automerge composer.lock file"}'
-  local data='{"commit_title":"MERGE PULL REQUEST: Automerge composer.lock file"}'
+  local data='{"sha":"'"$sha"'","commit_title":"MERGE PULL REQUEST: Automerge composer.lock file"}'
   echo $data
   curl -sSL \
    -H "Accept: application/vnd.github.v3+json" \
