@@ -10,7 +10,7 @@ main() {
   ensure::env_variable_exist "GITHUB_EVENT_PATH"
   ensure::total_args 2 "$@"
 
-  cat "$GITHUB_EVENT_PATH"
+#  cat "$GITHUB_EVENT_PATH"
 
   export GITHUB_TOKEN="$1"
 
@@ -20,13 +20,14 @@ main() {
   
  local -r pr_files="$(github_actions::get_pull_request_files \"$pr_number\")"
 
- echo "num $num_files"
+echo "pr $pr_files"
+
+ local -r num_files="$(echo \"$pr_files\" | wc -l )"
+
+echo "num $num_files"
 
  if [ $num_files -eq 1 ]; then
-    echo "name $commited_files"
-    if [ "$commited_files" == "composer.lock" ]; then
-      echo "INNNN"
-
+    if [ "$pr_files" == "composer.lock" ]; then
       github::merge_pull_request "$pr_number" "$commit_sha"
       echo "IF 2"
     fi
