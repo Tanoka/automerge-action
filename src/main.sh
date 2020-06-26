@@ -19,7 +19,8 @@ main() {
  $num_files=$(echo "$commited_files" | wc -l)
  if [ $num_files -eq 1 ]; then
     if [ "$commited_files" == "composer.lock" ]; then
-      github::merge_pull_request 
+      local -r pr_nunber="$(github_actions::get_pr_number)"
+      github::merge_pull_request "$pr_number"
     fi
  fi
 
